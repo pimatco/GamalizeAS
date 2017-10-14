@@ -1,6 +1,7 @@
 package com.aula.gama.myapplication;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.aula.gama.myapplication.Screen2Activity.Screen2;
 
@@ -22,12 +24,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final LinearLayout ll = new LinearLayout(this);
+       /* final LinearLayout ll = new LinearLayout(this);
         getActionBar();
         ActionBar actionBar = getActionBar();
-        actionBar.setIcon(R.drawable.gamaiconmdpi);
+        actionBar.setIcon(R.drawable.gamaiconmdpi);*/
 
+        Context context = getApplicationContext();
+        CharSequence text = "opened";
+        int duration = Toast.LENGTH_SHORT;
 
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -39,11 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Screen2.class);
                 startActivity(intent);*/
 
-                for(int i = 0; i < 20; i++) {
-                    CheckBox cb = new CheckBox(getApplicationContext());
-                    cb.setText("I'm dynamic!");
-                    ll.addView(cb);
-                }
             }
         });
 
